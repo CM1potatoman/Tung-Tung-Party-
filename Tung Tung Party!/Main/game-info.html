@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Info - Proxy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav>
+    <a href="home.html" class="nav-logo">Proxy</a>
+    <a href="home.html">Home</a>
+    <a href="games.html">Games</a>
+    <a href="store.html">Store</a>
+  </nav>
+
+  <div class="game-info-layout">
+
+    <div class="game-info-left">
+      <img id="game-img" src="" alt=""
+           onerror="this.style.display='none';document.getElementById('game-img-ph').style.display='flex'">
+      <div class="img-placeholder" id="game-img-ph" style="display:none">No image</div>
+    </div>
+
+    <div class="game-info-right">
+      <h1 id="title">Loading...</h1>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <label>Genre</label>
+          <span id="game-genre">—</span>
+        </div>
+        <div class="meta-item">
+          <label>Developer</label>
+          <span id="developer">—</span>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <p id="description"></p>
+
+      <div class="price-box">
+        <div>
+          <div class="price-label">Price</div>
+          <div class="price-value" id="price-display">—</div>
+        </div>
+        <a id="store-link" href="#" target="_blank" class="btn green">Get Game</a>
+      </div>
+
+      <br>
+      <a href="games.html" class="back-link"> Back to Games</a>
+    </div>
+
+  </div>
+
+  <script>
+    const games = {
+      wuwa: {
+        title: "Wuthering Waves",
+        genre: "Action RPG",
+        developer: "Kuro Games",
+        description: "Wuthering Waves is an open-world action RPG by Kuro Games. Set in a vibrant world, players explore, fight, and uncover a rich narrative with a diverse cast of characters and stunning visuals.",
+        price: "Free to Play", priceClass: "free",
+        image: "wuwa.jpg",
+        storeUrl: "https://wutheringwaves.kurogames.com"
+      },
+      zzz: {
+        title: "Zenless Zone Zero",
+        genre: "Action RPG",
+        developer: "HoYoverse",
+        description: "Zenless Zone Zero is an action RPG by HoYoverse set in the futuristic city of New Eridu. Players battle through Hollows — dimensional anomalies — with fast-paced combat and a unique comic-book art style.",
+        price: "Free to Play", priceClass: "free",
+        image: "zzz.jpg",
+        storeUrl: "https://zenless.hoyoverse.com"
+      },
+      honkai: {
+        title: "Honkai: Star Rail",
+        genre: "Turn-based Strategy RPG",
+        developer: "HoYoverse",
+        description: "Honkai: Star Rail is a turn-based RPG by HoYoverse. Ride the Astral Express through space and time, building a team of unique characters and battling cosmic threats across a sprawling universe.",
+        price: "Free to Play", priceClass: "free",
+        image: "hsr.jpg",
+        storeUrl: "https://hsr.hoyoverse.com"
+      },
+      ba: {
+        title: "Blue Archive",
+        genre: "Mobile RPG / Strategy",
+        developer: "NAT Games / Yostar",
+        description: "Blue Archive is a mobile RPG set in the academy city of Kivotos. Play as a teacher leading students with unique abilities through turn-based tactical battles and a surprisingly deep story.",
+        price: "Free to Play", priceClass: "free",
+        image: "ba.jpg",
+        storeUrl: "https://bluearchive.nexon.com"
+      },
+      ak: {
+        title: "Arknights Endfield",
+        genre: "Real-time 3D RPG",
+        developer: "Gryphline",
+        description: "Arknights: Endfield is a 3D action RPG set on the harsh planet Talos-II. Lead Endfield Industries to build, explore, and fight back the Blight in a detailed science-fantasy open world.",
+        price: "Free to Play", priceClass: "free",
+        image: "ak.jpg",
+        storeUrl: "https://endfield.gryphline.com"
+      },
+      hol: {
+        title: "Hollow Knight: Silksong",
+        genre: "Action-Adventure / Metroidvania",
+        developer: "Team Cherry",
+        description: "The long-awaited sequel to Hollow Knight. Play as Hornet across a new, vast kingdom filled with challenging foes, hidden secrets, and hand-drawn art. Developed by the indie studio Team Cherry.",
+        price: "20", priceClass: "20",
+        image: "hol.jpg",
+        storeUrl: "https://www.hollowknight.com"
+      },
+      miside: {
+        title: "MiSide",
+        genre: "Psychological Horror Simulation",
+        developer: "AIHASTO",
+        description: "MiSide is a psychological horror game where your AI companion Mita becomes self-aware and traps you inside a digital world. Disturbing, atmospheric, and full of secrets — with multiple endings.",
+        price: "14.99", priceClass: "paid",
+        image: "miside.jpg",
+        storeUrl: "https://store.steampowered.com/app/2527500/MiSide/"
+      }
+    };
+
+    const key = new URLSearchParams(window.location.search).get('game');
+    const g = games[key];
+
+    if (g) {
+      document.title = g.title + ' — CFGAMES';
+      document.getElementById('title').textContent       = g.title;
+      document.getElementById('game-genre').textContent  = g.genre;
+      document.getElementById('developer').textContent   = g.developer;
+      document.getElementById('description').textContent = g.description;
+      const pEl = document.getElementById('price-display');
+      pEl.textContent = g.price;
+      pEl.className = 'price-value ' + g.priceClass;
+      const img = document.getElementById('game-img');
+      img.src = g.image;
+      img.alt = g.title;
+      document.getElementById('store-link').href = g.storeUrl;
+    } else {
+      document.getElementById('title').textContent = 'Game not found';
+      document.getElementById('store-link').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
