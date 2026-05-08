@@ -1,0 +1,60 @@
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: #16213e;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  padding: 12px 24px;
+  background: #e94560;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.featured-section {
+  padding: 30px;
+}
+
+.featured-section h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.about-section {
+  padding: 40px 30px;
+  background: #16213e;
+  margin-top: 30px;
+  text-align: center;
+  color: #aaa;
+}
+
+.about-section h2 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.page-title {
+  padding: 30px;
+  text-align: center;
+}
+
+.page-title p {
+  color: #aaa;
+}
+
+.price {
+  color: #e94560 !important;
+  font-weight: bold;
+}

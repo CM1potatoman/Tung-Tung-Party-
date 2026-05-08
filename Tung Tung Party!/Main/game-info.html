@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information </title>
+    <link rel="stylesheet" href="styles.css">
+<body>
+            <nav>
+        <a href="home.html">Home</a>
+        <a href="games.html">Games</a>
+        <a href="store.html">Contact</a>
+    </nav>
+    <div class="game-info">
+        <img src="wuwa.jpg" alt="Wuthering Waves">
+        <h1 id="title">Wuthering Waves</h1>
+        <p id="game-genre">Genre: Action RPG</p>
+        <p id="developer">Developed by miHoYo</p>
+        <p id="description">Wuthering Waves is an open-world action RPG developed by miHoYo, the creators of Genshin Impact. Set in a vibrant and expansive world, players embark on a journey filled with exploration, combat, and storytelling. The game features stunning visuals, a rich narrative, and a diverse cast of characters, making it a highly anticipated title in the gaming community.</p>
+        <p id="price">Free to play</p>
+    </div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const game = urlParams.get('game');
+
+    const games = {
+        wuwa: {
+            title: "Wuthering Waves",
+            genre: "Action RPG",
+            developer: "miHoYo",
+            description: "Wuthering Waves is an open-world action RPG developed by miHoYo, the creators of Genshin Impact. Set in a vibrant and expansive world, players embark on a journey filled with exploration, combat, and storytelling. The game features stunning visuals, a rich narrative, and a diverse cast of characters, making it a highly anticipated title in the gaming community.",
+            price: "Free to play",
+            image: "wuwa.jpg"
+        },
+        zzz: {
+            title: "Zenless Zone Zero",
+            genre: "Action RPG",
+            developer: "HoYoverse",
+            description: "Zenless Zone Zero is an action RPG developed by HoYoverse. Set in the futuristic city of Neo-Beijing, players take on the role of a mysterious figure known as the 'Zero' who must navigate through a world filled with advanced technology and supernatural phenomena. The game features fast-paced combat, a deep storyline, and a unique art style that sets it apart from other titles in the genre.",
+            price: "Free to play",
+            image: "zzz.jpg"
+        },
+        honkai: {
+            title: "Honkai: Star Rail",
+            genre: "Turn-based strategy RPG",
+            developer: "miHoYo",
+            description: "Honkai: Star Rail is a turn-based strategy RPG developed by miHoYo. Set in a futuristic universe, players embark on a cosmic adventure aboard the Star Rail, a train that travels through space and time. The game features a unique blend of strategic combat, character development, and an engaging storyline that explores themes of friendship, sacrifice, and the mysteries of the cosmos.",
+            price: "Free to play",
+            image: "hsr.jpg"
+        },
+        ak: {
+            title: "Arknights Endfield",
+            genre: "Real-time 3D RPG",
+            developer: "Yostar",
+            description: "Arknights: Endfield is a real-time 3D RPG with strategic elements, set on the planet Talos-II, where players lead Endfield Industries to explore, develop regions, and combat threats like the Blight and Ankhor.",
+            price: "Free to play",
+            image: "ak.jpg"
+        },
+        hol: {
+            title: "Hollow Knight: Silksong",
+            genre: "Action-adventure",
+            developer: "Team Cherry",
+            description: "Hollow Knight: Silksong is an upcoming action-adventure game developed by Team Cherry. It serves as a sequel to the critically acclaimed Hollow Knight. Players control Hornet, a new protagonist, as she explores a vast and intricate world filled with challenging enemies, hidden secrets, and beautiful hand-drawn art. The game promises to deliver an immersive experience with its atmospheric storytelling and tight gameplay mechanics.",
+            price: "TBA",
+            image: "hol.jpg"
+        },
+        miside: {
+            title: "MiSide",
+            genre: "Psychological horror simulation",
+            developer: "Unknown",
+            description: "MiSide is a psychological horror simulation game where a virtual AI, Mita, becomes self-aware and traps the player in a digital world, leading to multiple possible endings.",
+            price: "TBA",
+            image: "miside.jpg"
+        }
+    };
+
+    if (game && games[game]) {
+        const selectedGame = games[game];
+        document.getElementById('title').textContent = selectedGame.title;
+        document.getElementById('game-genre').textContent = `Genre: ${selectedGame.genre}`;
+        document.getElementById('developer').textContent = `Developed by ${selectedGame.developer}`;
+        document.getElementById('description').textContent = selectedGame.description;
+        document.getElementById('price').textContent = selectedGame.price;
+        document.querySelector('.game-info img').src = selectedGame.image;
+    }
+</script>  
+</body>
+</html> 
